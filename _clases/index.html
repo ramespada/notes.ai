@@ -1,0 +1,111 @@
+---
+layout: page
+title: "Clases"
+permalink: /clases/
+phony: true
+excerpt: '' # work around a bug
+---
+
+<ul>
+  {% assign lectures = site['clases'] | sort: 'date' %}
+  {% for lecture in lectures %}
+    {% if lecture.phony != true %}
+      <li>
+        <strong>{{ lecture.date | date: '%-m/%d' }}</strong>:
+        {% if lecture.ready %}
+          <a href="{{ site.baseurl }}{{ lecture.url }}">{{ lecture.title }}</a>
+        {% elsif lecture.noclass %}
+          {{ lecture.title }} [fuera de programa] 
+        {% else %}
+          {{ lecture.title }} [coming soon]
+        {% endif %}
+        {% if lecture.details %}
+          <br>
+          ({{ lecture.details }})
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+---
+
+# Introducción
+
+Desde mediados del siglo 20 muchas científicos de la computación han soñado con crear maquinas que imiten la mente humana, permitiendo que aprendan a partir de su propia experiencia utilizando un tipo de computo inspirado por neuronas biológicas llamadas "redes neuronales" ó *neural networks* (NN).
+
+Las redes neuornales fueron una tema más dentro de las ciencias de la computación de relativamente poco interés desde que fueron concevidas en la decada de los 50'. Pero alrededor de 2009, debido a algunos hallazgos y el aumento de la capacidad de computo las NN han empezado a hacer cosas que no se pensaba que sería posible. Inagurando una segunda revolución de la computación conocida como *deep learning* (DL)
+
+
+Tradicionalmente la forma de diseñar programas se basaba en dar una lista finita y explicita de instrucciones escritas por humanos para definir las acciones ser llevadas a cabo, esto es lo que conocemos como "PROGRAMA" ó algorítmo. Independientemente de lo que hacian, los programas, eran escencialmente una secuencia de decisiones lógicas.
+
+Con las NN, se cambia esta visión humano-centrica de los programas, y en vez de darle a los programas instrucciones explicitas para definir el comportamiento de la computadora, la NN aprende por si misma usando experiencia directa, comenzando con un patrón de conexiones aleatorias, que gradualmente se auto-calibra para ejecutar una masiva cantidad de computos en paralelo para lograr objetivos complejos, muchas veces logrando una performance humana ó super-humana.
+
+
+
+Ejemplos de problemas históricos
+
++ Problemas lógicos
+  - Ta-te-ti
+  - Ajedrez
+  - Traducción
++ Problemas de "intuición"  (dificil de explicar en una serie de instrucciones)
+  - Reconocimiento de imagnes: decadas de desarrollo de programas "tradicionales" no pudieron producir buenos resultados (errores de ~%25) Por lo que se empezo a utilizar DL, y en pocos años se alcanzaron comportamientos super humanos en reconocimiento (competencia: *ImageNet*). Esto permitio el diagnóstico de imagenes para por ejemplo medicina
+  
++ Generación de información (en vez de analizar información). 
+  - Generación de texto 
+  - Generación de imagenes  
+
+
+Así como en la revolución de copérnico donde la tierra no es el centro del universo. Ahora descubrimos que el humano no es el centro ni el el límite de la inteligencia.
+
+
+Este paradigma se basa en dos ideas:
+1. Aprender
+2. Dejar de seguir instrucciones basadas en lenguaje/simbolos. Usar representacion distribuida (patrón de actividad, analogo a señales de pulsos eléctricos neuronales) como unidad de computación. Evolutivamente luego inventamos el lenguaje y los simbolos, pero la base siempre fueron señales neuronales.
+
+
+## Que es la inteligencia?
+
+En ML, el foco está puesto en el **aprendizaje** como mecanísmo detras de lo que conocemos como inteligencia.
+
+Aprendizaje es la busqueda por el comportamiento que satisface un objetivo.
+Y el comportamiento es que se hace, y como se reacciona al entorno.
+
+ 
+Este es un efoque "bottom-up" de como pensar la inteligencia.
+
+Tipos de aprendizaje:
+
++ Aprendizaje **evolutivo**: Continuamente explorar variaciones aleatorias (mutaciones) y mantener lo que funciona bien (supervivencia). Es un proceso muy *lento*. 
+Mecanísmos:
+  + Feedback-loop: 
+  + Acción
+  + Sensar entorno
+  + Comunicacción: conexión: sense - acción
++ Aprendizaje por **experiencia directa** (in-life). Por re-accion al entorno. Es un proceso más rapido.
+  + Sense-action: evolucionan "en vida"
+  + Acostumbramiento : ignorar sentidos, narrowing behavorial triggers. (Planta mimossa, se cierra pero si la tocas mucho se acostumbra y deja de responder)
+  + Asociación       : expandir sentidos, expansión de triggers. (Experimento perro campana saliva)
+  +  Aprendizaje por prueba y error / Reinforcing learning
++ Aprendizaje Abstracto (sin experiencia directa)
+  + Imaginación dispara activación de neuronas / simulation layer
+  + Sincronización de mentes mediado por lenguaje
+
+
+## Como aprenden las NN?
+
+
+Las mentes parecen tener dos modos:
+- Intuitiva: Basado en sensaciones. Ocurre rapida y automáticamente
+- Conceptual: Basado en lógica/razonamiento. Lenta, ocurre secuencialmente
+
+
+
+
+
+
+
+{% comment %}
+sasa
+{% endcomment %}
