@@ -6,7 +6,21 @@ phony: true
 excerpt: '' # work around a bug
 ---
 
-<ul>
+Capítulos:
+
+1. El Perceptron
+2. Gradient-descent
+3. Backpropagation 
+4. Deep-learning
+5. Alexnet
+6. Leyes de escalado neuronal
+7. Interpretabilidad mecanística
+8. Attención
+9. Generación de imagenes y Video
+10. Aprendizaje subliminal
+
+
+<!--ul>
   {% assign lectures = site['clases'] | sort: 'date' %}
   {% for lecture in lectures %}
     {% if lecture.phony != true %}
@@ -26,7 +40,7 @@ excerpt: '' # work around a bug
       </li>
     {% endif %}
   {% endfor %}
-</ul>
+</ul-->
 
 ---
 
