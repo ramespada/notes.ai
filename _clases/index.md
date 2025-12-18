@@ -12,10 +12,10 @@ Capítulos:
 2. Gradient-descent
 3. Backpropagation 
 4. Deep-learning
-5. Alexnet
+5. Alexnet (CNN)
 6. Leyes de escalado neuronal
 7. Interpretabilidad mecanística
-8. Attención
+8. Atención (Transformers)
 9. Generación de imagenes y Video
 10. Aprendizaje subliminal
 
@@ -71,21 +71,19 @@ Ejemplos de problemas históricos
   - Generación de imagenes  
 
 
-Así como en la revolución de copérnico donde la tierra no es el centro del universo. Ahora descubrimos que el humano no es el centro ni el el límite de la inteligencia.
+Así como en la revolución copernicana donde se descubrió que la tierra no es el centro del universo. Las técnicas de ML, nos demuestran que el humano no es el centro ni el máximo exponente de la inteligencia.
 
 
-Este paradigma se basa en dos ideas:
-1. Aprender
-2. Dejar de seguir instrucciones basadas en lenguaje/simbolos. Usar representacion distribuida (patrón de actividad, analogo a señales de pulsos eléctricos neuronales) como unidad de computación. Evolutivamente luego inventamos el lenguaje y los simbolos, pero la base siempre fueron señales neuronales.
+El paradigma de ML, se basa en dos ideas:
+1. Aprendizaje. La inteligencia es la consecuencia del aprendizaje, y aprender es adaptar el comportamiento de tal forma de satisfacer un objetivo determinado. 
+2. Usar una representación distribuida. Los programas ya no siguen instrucciones basadas en lenguaje ó simbolos. Sino un *patrón de actividad* (análogo a señales de pulsos eléctricos neuronales). La representación distribuida es la nueva unidad de computo. Los humanos tendemos a pensar en el lenguaje como la base del pensamiento, pero evolutivamente el lenguaje y los símbolos surgen como sintesis de señale ó impulos neuronales.
 
 
 ## Que es la inteligencia?
 
 En ML, el foco está puesto en el **aprendizaje** como mecanísmo detras de lo que conocemos como inteligencia.
 
-Aprendizaje es la busqueda por el comportamiento que satisface un objetivo.
-Y el comportamiento es que se hace, y como se reacciona al entorno.
-
+Aprendizaje es la busqueda por el comportamiento que satisface un objetivo. Y el comportamiento es que se hace, y como se reacciona al entorno.
  
 Este es un efoque "bottom-up" de como pensar la inteligencia.
 
@@ -109,12 +107,9 @@ Mecanísmos:
 
 ## Como aprenden las NN?
 
-
 Las mentes parecen tener dos modos:
 - Intuitiva: Basado en sensaciones. Ocurre rapida y automáticamente
 - Conceptual: Basado en lógica/razonamiento. Lenta, ocurre secuencialmente
-
-
 
 
 
