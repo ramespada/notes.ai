@@ -1,50 +1,78 @@
 ---
 layout: lecture
-title: Perceptron
-description: El perceptron (la unidad base de una red neuronal)
+title: Gradient Descent
+description: Metodo basico para minimizar la perdida de un modelo
 date: 2024-03-08
 ready: true
 ---
 
-> El *perceptrón*, es un modelo simplificado del funcionamiento de una neurona biológica, fue creado por Frank Rosenblatt en la decada de los 50', y es la base de las redes neuronales. 
+> Gradient descent ajusta los parametros de un modelo para reducir su error.
 
+## Objetivo
 
-Componentes de un perceptron:
-- Entradas/Input (x): una señal que consiste en un arreglo 1-D de valores
-- Salida/Output  (y): una salida binaria (0-1)
-- Pesos: (w): valores que ponderan la importancia de la señalde ajuste del perceptron
+Entrenar significa encontrar parametros $$\theta$$ que minimicen la perdida:
 
-Para que un perceptron quede definido tambien es importante determinar:
-- Algoritmo de ajuste de los w
-- Tasa de aprendizaje (alpha)
-- Función de activación
+$$
+\theta^* = \arg\min_{\theta} \mathcal{L}(\theta)
+$$
 
+## Regla de actualizacion
 
+$$
+\theta_{t+1} = \theta_t - \alpha \nabla_{\theta}\mathcal{L}(\theta_t)
+$$
 
-## Algoritmos de ajuste:
+- $$\nabla_{\theta}\mathcal{L}$$: gradiente (direccion de mayor subida).
+- Se resta para bajar la perdida.
+- $$\alpha$$: learning rate.
 
-### Perceptron learning rule
+## Tipos
 
-$$ w_j'=w_j - \alpha x_j $$
+- **Batch GD**: usa todo el dataset por paso.
+- **SGD**: usa un solo ejemplo por paso.
+- **Mini-batch GD**: usa un bloque pequeno (el mas usado en deep learning).
 
+## Intuicion rapida
 
-### Regla de ajuste por cuadrados mínimos (LMS): 
+- learning rate muy alto: inestable.
+- learning rate muy bajo: lento.
+- no garantiza minimo global, pero suele encontrar soluciones buenas en alta dimension.
 
-Bernard Widrow y Ted Hoff propusieron una regla de ajuste que depende del error:
+## Pseudocodigo
 
-$$ w_j'=w_j + \alpha x_j (y - y*) $$
+```text
+inicializar theta
+repetir:
+    tomar mini-batch B
+    calcular loss L(theta; B)
+    calcular gradiente g
+    theta = theta - alpha * g
+```
 
+## Ejemplo minimo (NumPy)
 
-### Backpropagation
+```python
+import numpy as np
 
+X = np.array([[0.0], [1.0], [2.0], [3.0]])
+y = np.array([1.0, 3.0, 5.0, 7.0])  # y = 2x + 1
 
+w, b = 0.0, 0.0
+lr = 0.1
 
+for _ in range(500):
+    y_hat = w * X[:, 0] + b
+    err = y_hat - y
+    dw = (2 / len(X)) * np.sum(err * X[:, 0])
+    db = (2 / len(X)) * np.sum(err)
+    w -= lr * dw
+    b -= lr * db
 
-## Función de activación:
+print(w, b)
+```
 
-Antes de producir la salida, una función suma todas las señales multiplicadas por sus factores de peso y produce un valor único (salida). La función que interviene para generar este valor puede variar, a continuación veremos algunas de las más utilizadas.
+## Resumen
 
-### Función de activación de McCulloch-Pitts 
-
-
-### Función de activación Sigmoideal
+- Gradient descent minimiza la perdida paso a paso.
+- Necesita gradientes para funcionar.
+- Esos gradientes en redes multicapa se calculan con **backpropagation**.

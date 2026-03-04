@@ -9,14 +9,14 @@ excerpt: '' # work around a bug
 Capítulos:
 
 1. El Perceptron
-2. Gradient-descent
+2. Gradient Descent
 3. Backpropagation 
-4. Deep-learning
-5. Alexnet (CNN)
+4. Deep Learning
+5. AlexNet (CNN)
 6. Leyes de escalado neuronal
 7. Interpretabilidad mecanística
-8. Atención (Transformers)
-9. Generación de imagenes y Video
+8. Atencion (Transformers)
+9. Generacion de imagenes y video
 10. Aprendizaje subliminal
 
 

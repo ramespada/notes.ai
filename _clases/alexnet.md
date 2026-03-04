@@ -1,50 +1,82 @@
 ---
 layout: lecture
-title: Perceptron
-description: El perceptron (la unidad base de una red neuronal)
+title: AlexNet (CNN)
+description: La arquitectura que marco el inicio del deep learning moderno en vision
 date: 2024-03-08
 ready: true
 ---
 
-> El *perceptrón*, es un modelo simplificado del funcionamiento de una neurona biológica, fue creado por Frank Rosenblatt en la decada de los 50', y es la base de las redes neuronales. 
+> AlexNet (Krizhevsky, Sutskever, Hinton, 2012) gano ImageNet y mostro que CNN profundas + GPU podian superar claramente metodos previos.
 
+## 1. Contexto historico
 
-Componentes de un perceptron:
-- Entradas/Input (x): una señal que consiste en un arreglo 1-D de valores
-- Salida/Output  (y): una salida binaria (0-1)
-- Pesos: (w): valores que ponderan la importancia de la señalde ajuste del perceptron
+- Competencia: ImageNet LSVRC 2012.
+- Resultado: gran salto en error top-5 frente al estado del arte.
+- Impacto: acelero la adopcion de deep learning en vision por computadora.
 
-Para que un perceptron quede definido tambien es importante determinar:
-- Algoritmo de ajuste de los w
-- Tasa de aprendizaje (alpha)
-- Función de activación
+## 2. Que problema resolvia
 
+Clasificar imagenes en 1000 clases a gran escala, aprendiendo features directamente desde pixeles.
 
+## 3. Bloques de una CNN
 
-## Algoritmos de ajuste:
+### 3.1 Convolucion
 
-### Perceptron learning rule
+$$
+Y_{i,j,k} = \sum_{u,v,c} X_{i+u,j+v,c} \cdot W_{u,v,c,k} + b_k
+$$
 
-$$ w_j'=w_j - \alpha x_j $$
+Extrae patrones locales (bordes, texturas, formas).
 
+### 3.2 Activacion (ReLU)
 
-### Regla de ajuste por cuadrados mínimos (LMS): 
+$$
+\text{ReLU}(x) = \max(0, x)
+$$
 
-Bernard Widrow y Ted Hoff propusieron una regla de ajuste que depende del error:
+Acelera entrenamiento frente a activaciones saturantes.
 
-$$ w_j'=w_j + \alpha x_j (y - y*) $$
+### 3.3 Pooling
 
+Reduce resolucion espacial y mejora robustez.
 
-### Backpropagation
+### 3.4 Capas fully-connected
 
+Combinan features para producir logits de clase.
 
+### 3.5 Softmax
 
+Convierte logits en probabilidades.
 
-## Función de activación:
+## 4. Aportes clave de AlexNet
 
-Antes de producir la salida, una función suma todas las señales multiplicadas por sus factores de peso y produce un valor único (salida). La función que interviene para generar este valor puede variar, a continuación veremos algunas de las más utilizadas.
+- CNN profunda entrenada en GPU.
+- Uso fuerte de ReLU.
+- Data augmentation (recortes, flips, etc.).
+- Dropout en capas fully-connected.
 
-### Función de activación de McCulloch-Pitts 
+## 5. Flujo de entrenamiento
 
+1. Imagen de entrada.
+2. Convoluciones + ReLU + pooling.
+3. Capas fully-connected.
+4. Softmax + cross-entropy.
+5. Backprop + SGD para actualizar pesos.
 
-### Función de activación Sigmoideal
+## 6. Limitaciones
+
+- Muchos parametros en capas fully-connected.
+- Alto costo computacional para su epoca.
+- Luego fue superada por VGG, Inception, ResNet, etc.
+
+## 7. Legado
+
+- Establecio el pipeline moderno de vision con CNN.
+- Mostro el valor de escalar datos + computo + modelos.
+- Es un hito clave para entender la evolucion hacia modelos actuales.
+
+## 8. Ejercicios sugeridos
+
+1. Implementar una mini-CNN y entrenarla en CIFAR-10 o MNIST.
+2. Probar ReLU vs tanh en la misma arquitectura.
+3. Medir efecto de data augmentation en validation accuracy.
