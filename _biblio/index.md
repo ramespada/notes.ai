@@ -22,4 +22,5 @@ En esta sección se presentan algunos papers y referencias para profundizar los 
 - [Art of the problem (Youtube) - Artifitial Inteligence](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 - [Welch Labs (Youtube) - Neural Networks Demystified](https://www.youtube.com/watch?v=bxe2T-V8XRs&list=PLiaHhY2iBX9hdHaRr6b7XevZtgZRa1PoU)
 - [3B1B (Youtube) Neural Networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+- [Andrej Karpathy - NN: Zero to Hero](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=kQ4eguRukwARW8bt)
 
