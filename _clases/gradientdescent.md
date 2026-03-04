@@ -2,7 +2,7 @@
 layout: lecture
 title: Gradient Descent
 description: Metodo basico para minimizar la perdida de un modelo
-date: 2024-03-08
+date: 2024-03-02
 ready: true
 ---
 
@@ -26,6 +26,15 @@ $$
 - Se resta para bajar la perdida.
 - $$\alpha$$: learning rate.
 
+```mermaid
+flowchart LR
+    T0[Parametros actuales theta_t] --> G[Gradiente g = nabla L(theta_t)]
+    G --> S[Paso: alpha * g]
+    T0 --> U[Actualizar]
+    S --> U
+    U --> T1[Nuevos parametros theta_t+1]
+```
+
 ## Tipos
 
 - **Batch GD**: usa todo el dataset por paso.
@@ -47,6 +56,17 @@ repetir:
     calcular loss L(theta; B)
     calcular gradiente g
     theta = theta - alpha * g
+```
+
+```mermaid
+flowchart LR
+    I[Inicializar theta] --> B[Tomar mini-batch]
+    B --> F[Forward y loss]
+    F --> G[Calcular gradiente]
+    G --> U[Actualizar theta]
+    U --> C{Convergio?}
+    C -- No --> B
+    C -- Si --> T[Fin]
 ```
 
 ## Ejemplo minimo (NumPy)

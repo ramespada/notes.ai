@@ -2,7 +2,7 @@
 layout: lecture
 title: AlexNet (CNN)
 description: La arquitectura que marco el inicio del deep learning moderno en vision
-date: 2024-03-08
+date: 2024-03-04
 ready: true
 ---
 
@@ -17,6 +17,25 @@ ready: true
 ## 2. Que problema resolvia
 
 Clasificar imagenes en 1000 clases a gran escala, aprendiendo features directamente desde pixeles.
+
+## 2.1 Diagrama de arquitectura CNN (tipo AlexNet)
+
+```mermaid
+flowchart LR
+    I[Imagen de entrada] --> C1[Conv + ReLU]
+    C1 --> P1[MaxPool]
+    P1 --> C2[Conv + ReLU]
+    C2 --> P2[MaxPool]
+    P2 --> C3[Conv + ReLU]
+    C3 --> C4[Conv + ReLU]
+    C4 --> C5[Conv + ReLU]
+    C5 --> P3[MaxPool]
+    P3 --> FC1[Fully Connected + ReLU + Dropout]
+    FC1 --> FC2[Fully Connected + ReLU + Dropout]
+    FC2 --> FC3[Fully Connected]
+    FC3 --> SM[Softmax]
+    SM --> Y[Clase predicha]
+```
 
 ## 3. Bloques de una CNN
 
@@ -62,6 +81,15 @@ Convierte logits en probabilidades.
 3. Capas fully-connected.
 4. Softmax + cross-entropy.
 5. Backprop + SGD para actualizar pesos.
+
+```mermaid
+flowchart LR
+    X[Batch de imagenes] --> F[Forward CNN]
+    F --> L[Cross-entropy loss]
+    L --> B[Backpropagation]
+    B --> U[Update SGD]
+    U --> N[Siguiente batch]
+```
 
 ## 6. Limitaciones
 

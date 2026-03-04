@@ -2,7 +2,7 @@
 layout: lecture
 title: Perceptron
 description: El perceptron (la unidad base de una red neuronal)
-date: 2024-03-08
+date: 2024-03-01
 ready: true
 ---
 
@@ -11,6 +11,15 @@ ready: true
 ## Idea central
 
 Un perceptron toma una entrada vectorial, calcula una suma ponderada y decide una clase binaria.
+
+```mermaid
+flowchart LR
+    X[Entradas x1..xn] --> Z[z = w^T x + b]
+    W[Pesos w] --> Z
+    B[Bias b] --> Z
+    Z --> A[Funcion escalon]
+    A --> Y[Salida y_hat]
+```
 
 - Entrada: $$x = [x_1, x_2, ..., x_n]$$
 - Pesos: $$w = [w_1, w_2, ..., w_n]$$
@@ -75,6 +84,21 @@ $$
    - calcular $$\hat{y}^{(i)}$$
    - si hay error, actualizar $$w, b$$ con la regla anterior.
 4. Detener cuando no haya errores o se alcance un maximo de epocas.
+
+```mermaid
+flowchart LR
+    I[Inicializar w,b] --> P[Tomar ejemplo x,y]
+    P --> F[Calcular y_hat]
+    F --> C{y_hat == y?}
+    C -- Si --> N[Siguiente ejemplo]
+    C -- No --> U[Actualizar w,b]
+    U --> N
+    N --> E{Fin de epoca?}
+    E -- No --> P
+    E -- Si --> K{Hubo errores?}
+    K -- Si --> P
+    K -- No --> T[Fin]
+```
 
 ## Geometria: el perceptron piensa en lineas (o hiperplanos)
 

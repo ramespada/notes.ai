@@ -2,7 +2,7 @@
 layout: lecture
 title: Deep Learning
 description: Que cambia cuando pasamos de una neurona a redes profundas
-date: 2024-03-08
+date: 2024-03-06
 ready: true
 ---
 

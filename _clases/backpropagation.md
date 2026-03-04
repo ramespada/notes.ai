@@ -2,7 +2,7 @@
 layout: lecture
 title: Backpropagation
 description: Calculo eficiente de gradientes en redes neuronales
-date: 2024-03-08
+date: 2024-03-03
 ready: true
 ---
 
@@ -17,6 +17,20 @@ $$
 $$
 
 Backprop calcula ese gradiente de forma eficiente, desde la salida hacia la entrada.
+
+```mermaid
+flowchart LR
+    X[Entrada x] --> L1[Capa 1]
+    L1 --> L2[Capa 2]
+    L2 --> Y[Salida y_hat]
+    Y --> Loss[Loss L(y_hat,y)]
+    Loss --> D2[delta capa 2]
+    D2 --> D1[delta capa 1]
+    D2 --> G2[dW2, db2]
+    D1 --> G1[dW1, db1]
+    G2 --> U[Actualizar parametros]
+    G1 --> U
+```
 
 ## Red basica
 
